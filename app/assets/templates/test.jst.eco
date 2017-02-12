@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row">
+    <div class="alert alert-success col-lg-6 col-md-8 col-sm-12" role="alert">
+      <strong>Well done!</strong> You successfully read this important alert message.
+      1+1=<%= 1+1 %>
+    </div>
+</div>
+</div>

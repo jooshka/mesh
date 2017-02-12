@@ -19,14 +19,14 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+# gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -51,3 +51,57 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_girl_rails'
+  gem 'ffaker'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false
+  gem 'simplecov', require: false
+  gem 'selenium-webdriver'
+  gem 'poltergeist'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
+  gem 'capybara'
+end
+
+group :development do
+  gem 'meta_request'
+  gem 'lol_dba'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'bullet'
+end
+
+gem 'annotate', git: 'https://github.com/ctran/annotate_models.git', branch: 'develop'
+gem 'seed-fu', '~> 2.3'
+
+gem 'devise'
+gem 'devise-i18n'
+gem 'inherited_resources'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
+
+gem 'rolify'
+gem 'pundit'
+
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'has_scope'
+
+gem 'paperclip', "~> 5.0.0"
+gem 'paperclip-av-transcoder'
+
+gem 'font-awesome-rails'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end
+
+group :assets do
+  gem 'eco'
+end
+
+gem 'russian'
+gem 'time_diff'
