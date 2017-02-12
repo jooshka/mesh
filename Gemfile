@@ -53,7 +53,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
-  gem "rspec-rails"
+  gem 'rspec-rails'
+  gem 'fuubar'
 end
 
 group :test do
@@ -80,6 +81,7 @@ end
 
 gem 'annotate', git: 'https://github.com/ctran/annotate_models.git', branch: 'develop'
 gem 'seed-fu', '~> 2.3'
+gem "seedbank"
 
 gem 'devise'
 gem 'devise-i18n'

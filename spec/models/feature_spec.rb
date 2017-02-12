@@ -39,6 +39,11 @@ RSpec.describe Feature, type: :model do
         it { should_not be_valid }
       end
     end
+    it do
+      should validate_uniqueness_of(:name)
+         .scoped_to(:entity_id)
+         .case_insensitive
+    end
 
   end
 end

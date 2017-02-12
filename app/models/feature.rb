@@ -11,6 +11,15 @@
 
 class Feature < ApplicationRecord
   belongs_to :entity
-  validates :name, presence: true
+
+  validates :name,
+            presence: true,
+            uniqueness: { scope: :entity_id, case_sensitive: false }
+
   validates :entity, presence: true
+
+  before_validation do
+    name.try(:strip!)
+  end
+
 end

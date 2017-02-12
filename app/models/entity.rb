@@ -10,5 +10,14 @@
 
 class Entity < ApplicationRecord
   has_many :features, dependent: :destroy
-  validates :name, presence: true
+
+  accepts_nested_attributes_for :features, allow_destroy: true
+
+  validates :name,
+            presence: true,
+            uniqueness: {case_sensitive: false}
+
+  before_validation do
+    name.try(:strip!)
+  end
 end

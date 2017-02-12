@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212030854) do
+ActiveRecord::Schema.define(version: 20170212062512) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170212030854) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_entities_on_name", unique: true, using: :btree
   end
 
   create_table "features", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170212030854) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["entity_id"], name: "index_features_on_entity_id", using: :btree
+    t.index ["name", "entity_id"], name: "index_features_on_name_and_entity_id", unique: true, using: :btree
   end
 
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

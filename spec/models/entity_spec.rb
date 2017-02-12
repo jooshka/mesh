@@ -22,12 +22,20 @@ RSpec.describe Entity, type: :model do
   end
 
   context 'validations' do
-    it { should validate_presence_of(:name) }
     it { should be_valid }
-    describe "when name is not present" do
-      before { entity.name = " " }
+    it { should validate_presence_of(:name) }
+    it { should validate_uniqueness_of(:name).case_insensitive }
+
+    describe 'when name is not present' do
+      before { entity.name = ' ' }
       it { should_not be_valid }
     end
+
+    #describe 'trims spaces before validation' do
+    #  before { entity.name = '    Valid Entity name       ' }
+    #  it { expect(entity).to be_valid }
+    #  it { expect(entity.name).to eq('Valid Entity name') }
+    #end
   end
 
 end
