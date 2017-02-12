@@ -1,14 +1,16 @@
 # == Schema Information
 #
-# Table name: entities
+# Table name: features
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
+#  entity_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Entity < ApplicationRecord
-  has_many :features, dependent: :destroy
+class Feature < ApplicationRecord
+  belongs_to :entity
   validates :name, presence: true
+  validates :entity, presence: true
 end

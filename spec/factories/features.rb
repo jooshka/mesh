@@ -1,14 +1,17 @@
 # == Schema Information
 #
-# Table name: entities
+# Table name: features
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
+#  entity_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Entity < ApplicationRecord
-  has_many :features, dependent: :destroy
-  validates :name, presence: true
+FactoryGirl.define do
+  factory :feature do
+    name { FFaker::Lorem.words }
+    entity
+  end
 end
