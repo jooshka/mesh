@@ -1,11 +1,10 @@
-ActiveAdmin.register Entity do
-  permit_params :sort_id, :name, features_attributes: [:name, :id, :_destroy]
+ActiveAdmin.register Sort do
+  permit_params :name, entities_attributes: [:name, :id, :_destroy]
 
   index do
     selectable_column
     id_column
     column :name
-    column :sort
     actions
   end
 
@@ -14,12 +13,11 @@ ActiveAdmin.register Entity do
   show do
     attributes_table do
       row :name
-      row :sort
       row :created_at
       row :updated_at
     end
     panel "Features" do
-      table_for entity.features do
+      table_for sort.entities do
         column :id
         column :name
         column :created_at
@@ -30,12 +28,11 @@ ActiveAdmin.register Entity do
 
   form do |f|
     f.inputs "Admin Details" do
-      f.input :sort
       f.input :name
     end
 
     f.inputs 'Features' do
-      f.has_many :features, heading: false, allow_destroy: true do |b|
+      f.has_many :entities, heading: false, allow_destroy: true do |b|
         b.input :name
       end
     end
@@ -43,9 +40,4 @@ ActiveAdmin.register Entity do
     f.actions
   end
 
-  controller do
-    def scoped_collection
-      super.includes :sort
-    end
-  end
 end

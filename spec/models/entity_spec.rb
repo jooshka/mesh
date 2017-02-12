@@ -6,6 +6,7 @@
 #  name       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  sort_id    :integer
 #
 
 require 'rails_helper'
@@ -18,6 +19,7 @@ RSpec.describe Entity, type: :model do
   it { should respond_to(:name) }
 
   context 'associations' do
+    it { should belong_to(:sort) }
     it { should have_many(:features).dependent(:destroy) }
   end
 
