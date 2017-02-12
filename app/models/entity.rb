@@ -9,7 +9,7 @@
 #
 
 class Entity < ApplicationRecord
-  has_many :features, dependent: :destroy
+  has_many :features, dependent: :destroy, inverse_of: :entity
 
   accepts_nested_attributes_for :features, allow_destroy: true
 
